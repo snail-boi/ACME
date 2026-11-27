@@ -1,11 +1,17 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions
-on: [push]
+name: info
+on: push
+
 jobs:
+  info:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: hostname
-      - run: whoami
-      - run: uname -o
-      - run: ls
+      - name: Hostname
+        run: hostname
+      - name: Gebruiker
+        run: whoami
+        
+      - name: Besturingssysteem
+        run: uname -a
+      - name: inhoud van de werkmap
+        run: ls -la
