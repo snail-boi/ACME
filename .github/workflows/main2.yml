@@ -10,6 +10,9 @@ permissions:
 jobs:
   run_tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [22,24,26]
     steps:
       - name: code ophalen
         uses: actions/checkout@v7
@@ -17,7 +20,7 @@ jobs:
       - name: install node
         uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: ${{ matrix.version }}
 
       - name: run tests
         run: npm test
